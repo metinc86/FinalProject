@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -7,7 +8,11 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IEntityRepository<T>
+    //Generic Constraint 
+    // where T:class means T must be a reference type not a class!!! 
+    //In "where T:class, IEntity" IEntity means T can be IEntity or an object which implements IEntity (before adding new()) 
+    // In "where T:class, IEntity, new()" new() means T must be newable
+    public interface IEntityRepository<T> where T:class, IEntity, new() 
     {
         List<T> GetAll(Expression<Func<T,bool>>filter=null); 
         T Get(Expression<Func<T, bool>> filter);

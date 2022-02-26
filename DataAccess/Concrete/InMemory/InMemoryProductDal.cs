@@ -31,7 +31,7 @@ namespace DataAccess.Concrete.InMemory
 
         public void Delete(Product product)
         {
-            //We have used LINQ instead of foreach statement for delete function 
+            //We have used LINQ (Language Integrated Query) instead of foreach statement for delete function 
             /* 
             Product productToDelete = null;
             foreach (var p in _products)
@@ -59,12 +59,11 @@ namespace DataAccess.Concrete.InMemory
         {
             return _products; 
         }
-
+        
         public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            return _products;
         }
-
         public List<Product> GetAllByCategory(int categoryId)
         {
             return _products.Where(p => p.CategoryId == categoryId).ToList();

@@ -11,7 +11,7 @@ namespace DataAccess.Abstract
     //Generic Constraint 
     // where T:class means T must be a reference type not a class!!! 
     //In "where T:class, IEntity" IEntity means T can be IEntity or an object which implements IEntity (before adding new()) 
-    // In "where T:class, IEntity, new()" new() means T must be newable
+    // In "where T:class, IEntity, new()" new() means T must be newable (not abstract)
     public interface IEntityRepository<T> where T:class, IEntity, new() 
     {
         List<T> GetAll(Expression<Func<T,bool>>filter=null); 

@@ -12,11 +12,10 @@ using System.Threading.Tasks;
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController] //Attribute 
+    [ApiController] //This is an attribute 
     public class ProductsController : ControllerBase
     {
-        //Loosely coupled 
-        //IoC Container (Inversion of Control) 
+        // IoC Container 
 
         IProductService _productService;
 
@@ -33,7 +32,7 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result);
+            return BadRequest(result); 
         }
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)
@@ -43,8 +42,9 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result);
+            return BadRequest(result); 
         }
+
         [HttpPost("add")]
         public IActionResult Add(Product product)
         {
